@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Comment One",
+    "content": "This blog is dope.",
+    "date_created": "2021-01-03",
+    "user_id": "Sal"
+  },
+  {
+    "title": "Comment Two",
+    "content": "This blog ain't so dope.",
+    "date_created": "2021-01-03",
+    "user_id": "Lernantino"
+  },
+  {
+    "title": "Comment Three",
+    "content": "Where am I.",
+    "date_created": "2021-01-03",
+    "user_id": "Amiko"
+  }
+]

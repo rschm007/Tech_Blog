@@ -1,0 +1,30 @@
+{
+  "name": "tech_blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rschm007/Tech_Blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rschm007/Tech_Blog/issues"
+  },
+  "homepage": "https://github.com/rschm007/Tech_Blog#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.2.5",
+    "path": "^0.12.7",
+    "pug": "^3.0.0",
+    "sass": "^1.32.0",
+    "sequelize": "^6.3.5"
+  }
+}

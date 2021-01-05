@@ -8,20 +8,68 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/styles.css">
-    <title>Tech Blog</title>
+    <title>Technically a Tech Blog</title>
 </head>
 
 <body>
-    {{> nav }}
-    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark p-3 shadow-lg">
+        <a class="navbar-brand mb-0 h1 text-white" href="/">Technically a Tech Blog</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item mx-1">
+                    <a class="nav-link text-white" href="/">Home</a>
+                </li>
+
+                <li class="nav-item mx-1">
+                    <a class="nav-link text-white" href="/dashboard">Dashboard</a>
+                </li>
+                <!-- Conditionally render login or logout links -->
+                {{!-- TO-DO: Nav bar currently doesn't conditionally render correctly on homepage. Need to fix --}}
+                {{#if logged_in}}
+                <li class="nav-item mx-1">
+                    <a class="nav-link text-white" href="/profile">Profile</a>
+                </li>
+
+                <li class="nav-item mx-1">
+                    <a href="/dashboard/create/"><button class="btn btn-success" id="create-post">Create Post</button></a>
+                </li>
+
+                <li class="nav-item mx-1">
+                    <button class="btn btn-primary" id="logout">Logout</button>
+                </li>
+
+                {{else}}
+                <li class="nav-item mx-1">
+                    <a href="/login"><button class="btn btn-primary" id="login">Login</button></a>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+    </nav>
     <main class="bg-light">
         <div class="wrapper d-flex flex-column p-2">
             {{{body}}}
         </div>
     </main>
 
-    <footer>
-        {{> footer }}
+    <footer class="d-flex justify-content-center p-2">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/"><button class="btn btn-outline-primary btn-sm"
+                        id="homepage">Homepage</button></a>
+            </li>
+            <li class="nav-item">
+                <!-- Conditionally render login or logout links -->
+                {{#if logged_in}}
+                <a class="nav-link" href="/logout">
+                    <button class="btn btn-outline-dark btn-sm" id="logout">Logout</button></a>
+                {{else}}
+                <a class="nav-link" href="/login"><button class="btn btn-outline-dark btn-sm"
+                        id="login">Login</button></a>
+                {{/if}}
+            </li>
     </footer>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>

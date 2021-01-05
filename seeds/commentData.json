@@ -3,18 +3,18 @@
     "title": "Comment One",
     "content": "This blog is dope.",
     "date_created": "2021-01-03",
-    "user_id": "Sal"
+    "user_id": "1"
   },
   {
     "title": "Comment Two",
     "content": "This blog ain't so dope.",
     "date_created": "2021-01-03",
-    "user_id": "Lernantino"
+    "user_id": "2"
   },
   {
     "title": "Comment Three",
     "content": "Where am I.",
     "date_created": "2021-01-03",
-    "user_id": "Amiko"
+    "user_id": "3"
   }
 ]

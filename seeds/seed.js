@@ -13,10 +13,13 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  const blogs = await Blog.bulkCreate(blogData, {
-    individualHooks: true,
-    returning: true,
-  });
+  // // destroy empty blog objects first
+  // await Blog.destroy({ where: {}, force: true });
+
+  // seed blogs
+  // await Blog.bulkCreate(blogData, {
+  //   ignoreDuplicates: true,
+  // });
 
   for (const blog of blogData) {
     await Blog.create({

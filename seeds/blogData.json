@@ -1,21 +1,20 @@
 [
-    {
-      "title": "Blog One",
-      "content": "How to dougie.",
-      "date_created": "2021-01-03",
-      "user_id": "Sal"
-    },
-    {
-      "title": "Blog Two",
-      "content": "How I forgot everything.",
-      "date_created": "2021-01-03",
-      "user_id": "Lernantino"
-    },
-    {
-      "title": "Blog Three",
-      "content": "Secrets of Eastern Syncretism and you.",
-      "date_created": "2021-01-03",
-      "user_id": "Amiko"
-    }
-  ]
-  
+  {
+    "title": "Blog One",
+    "content": "How to dougie.",
+    "date_created": "2021-01-03",
+    "user_id": "1"
+  },
+  {
+    "title": "Blog Two",
+    "content": "How I forgot everything.",
+    "date_created": "2021-01-03",
+    "user_id": "2"
+  },
+  {
+    "title": "Blog Three",
+    "content": "Secrets of Eastern Syncretism and you.",
+    "date_created": "2021-01-03",
+    "user_id": "3"
+  }
+]

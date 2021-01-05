@@ -4,7 +4,7 @@
 
 {{!-- card for making a new blog post --}}
 <div class="card mx-5">
-    <h3 class="card-header bg-success text-white">Create a New Blog Post:</h3>
+    <h3 class="card-header bg-success text-white">Create a New Blog Post</h3>
     <div class="card-body">
         <form class="form new-blog-form">
             <div class="form-group">
@@ -23,41 +23,50 @@
     </div>
 </div>
 
-{{!-- if user has created blogs, display them here --}}
-{{#if blog.length}}
-<div class="col-md-6 project-list">
-    <h3>Your Blog Posts:</h3>
-
-    {{#each blogs as |blog|}}
-    <div class="row mb-2">
-        <div class="col-md-8">
-            <h4><a href="/project/{{blog.id}}">{{blog.title}}</a></h4>
+{{!-- blog display card --}}
+<div class="card mx-5 mt-5">
+    <h3 class="card-header bg-primary text-white">Your Posted Blogs</h3>
+    {{#if blog.length}}
+        {{#each blogs as |blog|}}
+        <div class="card-body">
+            <div class="card mx-2">
+                <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
+            </div>
+            <div class="mx-1">
+                <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+            </div>
         </div>
-        <div class="col-md-4">
-            <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
-        </div>
-    </div>
-    {{/each}}
-</div>
-{{/if}}
-
-{{!-- if user has created comments, display them here --}}
-{{#if comment.length}}
-<div class="col-md-6 project-list">
-    <h3>Your Comments:</h3>
-
-    {{#each comments as |comment|}}
-    <div class="row mb-2">
-        <div class="col-md-8">
-            <h4><a href="/project/{{comment.id}}">{{comment.title}}</a></h4>
-        </div>
-        <div class="col-md-4">
-            <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+        {{/each}}
+    {{else}}
+    <div class="card-body">
+        <div class="mx-2">
+            <h4>You have not posted any blogs.</h4>
         </div>
     </div>
-    {{/each}}
+    {{/if}}
 </div>
-{{/if}}
+
+{{!-- comment display card --}}
+<div class="card mx-5 mt-5">
+    <h3 class="card-header bg-info text-white">Your Comments</h3>
+    {{#if comment.length}}
+        {{#each comments as |comment|}}
+        <div class="card-body">
+            <div class="card mx-2">
+                <h4><a href="/comment/{{comment.id}}">{{comment.title}}</a></h4>
+            </div>
+            <div class="mx-1">
+                <button class="btn btn-sm btn-danger" data-id="{{comment.id}}">DELETE</button>
+            </div>
+        </div>
+        {{/each}}
+    {{else}}
+    <div class="card-body">
+        <div class="mx-2">
+            <h4>You have not posted any comments.</h4>
+        </div>
+    </div>
+    {{/if}}
 </div>
 
 <script src="/public/js/profile.js"></script>

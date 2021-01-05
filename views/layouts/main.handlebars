@@ -12,36 +12,7 @@
 </head>
 
 <body>
-    <header>
-        <h1>Technically, This is a Tech Blog</h1>
-        <nav>
-            <ul class="nav">
-                <!-- Conditionally render login or logout links -->
-                {{#if logged_in}}
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Homepage</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/profile">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/profile/create/">Create Post</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/profile/create/">Create Post</a>
-                </li>
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="/profile">Profile</a>
-                    <button class="no-button" id="logout">Logout</button>
-                </li>
-                {{else}}
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
-                {{/if}}
-        </nav>
+    {{> nav }}
     </header>
     <main>
         <div class="wrapper d-flex p-2">
@@ -50,7 +21,7 @@
     </main>
 
     <footer>
-        {{> footer}}
+        {{> footer }}
     </footer>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>

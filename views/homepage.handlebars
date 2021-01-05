@@ -1,19 +1,18 @@
 <!-- Loop over each object in the blogs array -->
 {{#each blogs as |blog| }}
 
-<div class="blogCard p-5">
-    <header class="m-2">
+<div class="card px-5 py-4 mx-5 my-2">
+    <header class="card-title m-2">
         <h2>
             <a href="/blog/{{id}}">{{title}}</a>
         </h2>
-        <p>Posted by {{user.name}} on {{format_date date_created}}</p>
     </header>
-    <div class="m-2">
+    <div class="card-text m-2">
         <p>
             {{content}}
         </p>
     </div>
-    <div class="comment">
+    <div class="comment m-2">
         <b>{{user.name}}</b> |
         {{format_date date_created}} |
         <a href="/post/{{id}}">

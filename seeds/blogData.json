@@ -1,19 +1,19 @@
 [
   {
-    "title": "Blog One",
-    "content": "How to dougie.",
+    "title": "How to Dougie for Dummies",
+    "content": "orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     "date_created": "2021-01-03",
     "user_id": "1"
   },
   {
-    "title": "Blog Two",
-    "content": "How I forgot everything.",
+    "title": "How I Forgot Everything",
+    "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
     "date_created": "2021-01-03",
     "user_id": "2"
   },
   {
-    "title": "Blog Three",
-    "content": "Secrets of Eastern Syncretism and you.",
+    "title": "Secrets of Eastern Syncretism and you",
+    "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias.",
     "date_created": "2021-01-03",
     "user_id": "3"
   }

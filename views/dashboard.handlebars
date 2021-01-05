@@ -29,9 +29,14 @@
     <h3 class="card-header bg-primary text-white">Your Posted Blogs</h3>
 
     {{#if blogs.length}}
-    {{#each blogs as |blog|}}
-    {{> blog-card blog}}
-    {{/each}}
+        {{#each blogs as |blog|}}
+        {{> blog-card blog}}
+            <div class="d-inline-flex p-2">
+                <a href="/dashboard/edit/{{blog.id}}" class="mx-2"><button type="submit" class="btn btn-outline-danger">Delete</button></a>
+                <a href="/dashboard/edit/{{blog.id}}" class="mx-2"><button type="submit" class="btn btn-outline-secondary">Edit</button></a>
+            </div>
+        </div>
+        {{/each}}
 
     {{else}}
     <div class="card-body">

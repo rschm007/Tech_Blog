@@ -1,10 +1,30 @@
 <!-- Loop over each object in the blogs array -->
 {{#each blogs as |blog| }}
 
-{{> blogCard blog }}
+<div class="blogCard p-5">
+    <header class="m-2">
+        <h2>
+            <a href="/blog/{{id}}">{{title}}</a>
+        </h2>
+        <p>Posted by {{user.name}} on {{format_date date_created}}</p>
+    </header>
+    <div class="m-2">
+        <p>
+            {{content}}
+        </p>
+    </div>
+    <div class="comment">
+        <b>{{user.name}}</b> |
+        {{format_date date_created}} |
+        <a href="/post/{{id}}">
+            {{comments.length}} {{format_plural "comment" comments.length}}
+        </a>
+    </div>
 </div>
 
 {{else}}
-<h2>There are currently no posts</h2>
+<div class="p-2">
+    <h2>There are currently no posts</h2>
+</div>
 
 {{/each}}

@@ -1,36 +1,53 @@
-const router = require('express').Router();
-const { Comment } = require('../../models');
-const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { Comment } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-router.post('/', withAuth, async (req, res) => {
+// GET all comments
+router.get("/", async (req, res) => {
   try {
-    const newComment = await Comment.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
-
-    res.status(200).json(newComment);
+    await Comment.findAll({}).then((dbCommentData) => res.json(dbCommentData));
+    console.log("Comments retrieved");
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+// POST a new comment
+router.post("/", withAuth, async (req, res) => {
+  if (req.session) {
+    try {
+      await Comment.create({
+        content: req.body.content,
+        blog_id: req.body.blog_id,
+        user_id: req.session.user_id,
+      }).then((dbCommentData) => res.json(dbCommentData));
+      console.log("New comment succesfully created!");
+    } catch (err) {
+      console.log(err);
+      res.status(400).json(err);
+    }
+  }
+});
+
+// DELETE one comment
+router.delete("/:id", withAuth, async (req, res) => {
   try {
-    const commentData = await Comment.destroy({
+    await Comment.destroy({
       where: {
         id: req.params.id,
+        // user should only be able to delete comments they posted
         user_id: req.session.user_id,
       },
+    }).then((dbCommentData) => {
+      if (!dbCommentData) {
+        res.status(404).json({ message: "No comment found with this ID " });
+        return;
+      }
+      res.json(dbCommentData);
     });
-
-    if (!commentData) {
-      res.status(404).json({ message: 'No comment found with this id!' });
-      return;
-    }
-
-    res.status(200).json(commentData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

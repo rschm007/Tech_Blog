@@ -20,9 +20,9 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/Comment/:id", async (req, res) => {
+router.get("/comment/:id", async (req, res) => {
   try {
-    const CommentData = await Comment.findByPk(req.params.id, {
+    const commentData = await Comment.findByPk(req.params.id, {
       include: [
         {
           model: User,

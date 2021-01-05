@@ -11,7 +11,7 @@ const newFormHandler = async (event) => {
       headers: {
         "Content-Type": "application/json",
       },
-    });
+    });65
 
     if (response.ok) {
       document.location.replace("/dashboard");

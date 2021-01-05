@@ -1,20 +1,44 @@
 [
   {
-    "title": "Comment One",
     "content": "This blog is dope.",
+    "blog_id": 1,
     "date_created": "2021-01-03",
     "user_id": "1"
   },
   {
-    "title": "Comment Two",
     "content": "This blog ain't so dope.",
-    "date_created": "2021-01-03",
+    "blog_id": 2,
+    "date_created": "2021-01-02",
     "user_id": "2"
   },
   {
-    "title": "Comment Three",
     "content": "Where am I.",
-    "date_created": "2021-01-03",
+    "blog_id": 3,
+    "date_created": "2021-01-01",
     "user_id": "3"
+  },
+  {
+    "content": "Great post!.",
+    "blog_id": 1,
+    "date_created": "2020-12-28",
+    "user_id": "1"
+  },
+  {
+    "content": "Sir this is a Wendy's.",
+    "blog_id": 2,
+    "date_created": "2020-12-20",
+    "user_id": "2"
+  },
+  {
+    "content": "Order corn.",
+    "blog_id": 3,
+    "date_created": "2020-11-25",
+    "user_id": "3"
+  },
+  {
+    "content": "Hi I am new.",
+    "blog_id": 1,
+    "date_created": "2020-11-24",
+    "user_id": "1"
   }
 ]

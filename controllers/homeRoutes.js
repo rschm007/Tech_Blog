@@ -31,7 +31,7 @@ router.get("/blog/:id", async (req, res) => {
           attributes: ["id", "content", "blog_id", "user_id", "date_created"],
           include: {
             model: User,
-            attributes: ["username"],
+            attributes: ["name"],
           },
         },
         {
@@ -54,6 +54,7 @@ router.get("/blog/:id", async (req, res) => {
       });
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

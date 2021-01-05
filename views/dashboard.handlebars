@@ -25,18 +25,21 @@
 
 {{!-- blog display card --}}
 {{!-- TO-DO: blogs don't display number of comments correctly --}}
-{{#if blogs.length}}
-{{#each blogs as |blog|}}
-{{> blog-card}}
-{{/each}}
+<div class="card mx-5 mt-5 blog-list">
+    <h3 class="card-header bg-primary text-white">Your Posted Blogs</h3>
 
-{{else}}
-<div class="card-body">
-    <div class="mx-2">
-        <h4>You have not posted any blogs.</h4>
+    {{#if blogs.length}}
+    {{#each blogs as |blog|}}
+    {{> blog-card blog}}
+    {{/each}}
+
+    {{else}}
+    <div class="card-body">
+        <div class="mx-2">
+            <h4>You have not posted any blogs.</h4>
+        </div>
     </div>
-</div>
-{{/if}}
+    {{/if}}
 </div>
 
 <script src="/js/dashboard.js"></script>

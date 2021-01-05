@@ -1,20 +1,14 @@
-{{!-- TO-DO: CONSTRUCT HTML FOR COMMENTS PARTIAL --}}
-<div class="card mx-5 mt-5 comments-list">
-    <h3 class="card-header bg-primary text-white">Comments for {{blog.title}}</h3>
-
-    {{#each comments as |comment|}}
-    <div class="card px-5 py-4 mx-5 my-2 shadow">
-        <header class="card-title m-2">
-            <h2>
-                {{user.name}} on {{format_date date_created}}
-            </h2>
-        </header>
-        <div class="card-text m-2">
-            <p>
-                {{content}}
-            </p>
-        </div>
+{{#each comments as |comment|}}
+<div class="card px-5 py-4 mx-5 my-2 shadow">
+    <header class="card-title m-2">
+        <h2>
+            {{user.name}} on {{format_date date_created}}
+        </h2>
+    </header>
+    <div class="card-text m-2">
+        <p>
+            {{content}}
+        </p>
     </div>
-    {{/each}}
-
 </div>
+{{/each}}

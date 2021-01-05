@@ -1,5 +1,5 @@
 {{!-- display blog post info --}}
-{{> blog-card }}
+{{> blog-card blog}}
 
 {{!-- display comment form and already posted comments ONLY if logged in --}}
 {{#if logged_in}}
@@ -16,7 +16,7 @@
         </form>
     </div>
 </div>
-
+{{/if}}
 {{!-- display already posted comments --}}
 {{> comments blog.comments}}
 

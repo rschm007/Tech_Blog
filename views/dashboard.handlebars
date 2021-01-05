@@ -1,0 +1,63 @@
+<header class="d-inline-flex mx-5 my-2">
+    <h1>Welcome, {{name}}!</h1>
+</header>
+
+{{!-- card for making a new blog post --}}
+<div class="card mx-5">
+    <h3 class="card-header bg-success text-white">Create a New Blog Post:</h3>
+    <div class="card-body">
+        <form class="form new-blog-form">
+            <div class="form-group">
+                <label for="blog-title">Blog Title</label>
+                <input class="form-control" placeholder="An interesting title..." type="text" id="new-blog-title" />
+            </div>
+            <div class="form-group">
+                <label for="project-desc">Blog Content:</label>
+                <textarea class="form-control" placeholder="A fascinating thing..." id="blog-content"
+                    name="blog-content"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{{!-- if user has created blogs, display them here --}}
+{{#if blog.length}}
+<div class="col-md-6 project-list">
+    <h3>Your Blog Posts:</h3>
+
+    {{#each blogs as |blog|}}
+    <div class="row mb-2">
+        <div class="col-md-8">
+            <h4><a href="/project/{{blog.id}}">{{blog.title}}</a></h4>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+
+{{!-- if user has created comments, display them here --}}
+{{#if comment.length}}
+<div class="col-md-6 project-list">
+    <h3>Your Comments:</h3>
+
+    {{#each comments as |comment|}}
+    <div class="row mb-2">
+        <div class="col-md-8">
+            <h4><a href="/project/{{comment.id}}">{{comment.title}}</a></h4>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+</div>
+
+<script src="/public/js/profile.js"></script>

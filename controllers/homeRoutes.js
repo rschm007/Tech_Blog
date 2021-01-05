@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Comment, User, Blog } = require("../models");
 const withAuth = require("../utils/auth");
 
+// GET all blogs
 router.get("/", async (req, res) => {
   try {
     // find all blogs with associated comments AND usernames attributed to those comments
@@ -10,7 +11,7 @@ router.get("/", async (req, res) => {
         const blogs = dbPostData.map((blog) => blog.get({ plain: true }));
         res.render("homepage", {
           blogs,
-          loggedIn: req.session.loggedIn,
+          logged_in: req.session.logged_in,
         });
       }
     );
@@ -20,22 +21,37 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/comment/:id", async (req, res) => {
+// GET one blog
+router.get("/blog/:id", async (req, res) => {
   try {
-    const commentData = await Comment.findByPk(req.params.id, {
+    await Blog.findByPk(req.params.id, {
       include: [
+        {
+          model: Comment,
+          attributes: ["id", "content", "blog_id", "user_id", "date_created"],
+          include: {
+            model: User,
+            attributes: ["username"],
+          },
+        },
         {
           model: User,
           attributes: ["name"],
         },
       ],
-    });
+    }).then((dbBlogData) => {
+      if (!dbBlogData) {
+        res.status(404).json({ message: "No blog post found with this ID" });
+        return;
+      }
+      // serialize data
+      const blog = dbBlogData.get({ plain: true });
 
-    const comment = commentData.get({ plain: true });
-
-    res.render("blog-post", {
-      ...comments,
-      logged_in: req.session.logged_in,
+      // pass data to views
+      res.render("blog-post", {
+        blog,
+        logged_in: req.session.logged_in,
+      });
     });
   } catch (err) {
     res.status(500).json(err);

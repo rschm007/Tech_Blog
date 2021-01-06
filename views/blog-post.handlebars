@@ -1,9 +1,8 @@
 {{!-- display blog post info --}}
 {{> blog-card blog}}
-</div>
 {{!-- display comment form and already posted comments ONLY if logged in --}}
 {{#if logged_in}}
-<div class="card d-inline-flex">
+<div class="card d-inline-flex mt-5">
     <h2 class="card-header">Add a Comment</h2>
     <div class="card-body">
         <form class="form comment-form">
@@ -18,17 +17,9 @@
 </div>
 {{/if}}
 {{!-- display already posted comments --}}
-{{#if comments.length}}
-    {{#each comments as |comment|}}
-    {{> comments}}
-    {{/each}}
-{{else}}
-    <div class="card-body">
-        <div class="mx-2">
-            <h4>There are no comments.</h4>
-        </div>
-    </div>
-{{/if}}
+{{> comments blog}}
+
+</div>
 
 {{#if logged_in}}
 <script src="/js/comment.js"></script>

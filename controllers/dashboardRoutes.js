@@ -41,7 +41,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
       where: {
         id: req.params.id,
       },
-      attributes: ["id", "title", "created_at", "content"],
+      attributes: ["id", "title", "date_created", "content"],
       // include associated Comments
       include: [
         {
@@ -59,8 +59,32 @@ router.get("/edit/:id", withAuth, async (req, res) => {
         return;
       }
       // serialize data first
-      const blog = dbBlogData.get({ plain: true});
+      const blog = dbBlogData.get({ plain: true });
       res.render("edit-blog", { blog, logged_in: true });
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// DELETE one blog post
+router.delete("/delete/:id", withAuth, async (req, res) => {
+  try {
+    // ACCESS Blog model and run .findOne method to matching req.params.id
+    await Blog.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    }).then((dbBlogData) => {
+      if (!dbBlogData) {
+        res.status(404).json({ message: "No blog post found with this ID" });
+        return;
+      }
+      // serialize data first
+      res.status(200).json(dbBlogData);
+      res.render("dashboard", { blogs, logged_in: true });
     });
   } catch (err) {
     console.log(err);

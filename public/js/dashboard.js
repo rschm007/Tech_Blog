@@ -44,7 +44,3 @@ document
 document
   .querySelector(".blog-list")
   .addEventListener("click", delButtonHandler);
-
-document
-  .querySelector(".comment-list")
-  .addEventListener("click", delButtonHandler);

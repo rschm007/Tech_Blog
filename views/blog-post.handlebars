@@ -18,7 +18,17 @@
 </div>
 {{/if}}
 {{!-- display already posted comments --}}
-{{> comments}}
+{{#if comments.length}}
+    {{#each comments as |comment|}}
+    {{> comments}}
+    {{/each}}
+{{else}}
+    <div class="card-body">
+        <div class="mx-2">
+            <h4>There are no comments.</h4>
+        </div>
+    </div>
+{{/if}}
 
 {{#if logged_in}}
 <script src="/js/comment.js"></script>

@@ -11,7 +11,7 @@ const newFormHandler = async (event) => {
       headers: {
         "Content-Type": "application/json",
       },
-    });65
+    });
 
     if (response.ok) {
       document.location.replace("/dashboard");
@@ -21,19 +21,30 @@ const newFormHandler = async (event) => {
   }
 };
 
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
+const deleteFormHandler = async (event) => {
+  try {
+    event.preventDefault();
+
+    const id = window.location.toString().split("/")[
+      window.location.toString().split("/").length - 1
+    ];
 
     const response = await fetch(`/api/blogs/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
+      body: JSON.stringify({
+        blog_id: id,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert('Failed to delete blog');
+      document.location.replace("/dashboard");
     }
+  } catch (err) {
+    console.log(err);
+    alert(response.statusText);
   }
 };
 
@@ -42,5 +53,5 @@ document
   .addEventListener("submit", newFormHandler);
 
 document
-  .querySelector(".blog-list")
-  .addEventListener("click", delButtonHandler);
+  .querySelector(".delete-blog-btn")
+  .addEventListener("click", deleteFormHandler);

@@ -31,7 +31,7 @@
 
     {{#if blogs.length}}
         {{#each blogs as |blog|}}
-            {{> blog-card blog}}
+            {{> dashboard-blog-card blog}}
                 <div class="d-inline-flex p-2">
                     <a href="/dashboard/delete/{{blog.id}}" class="mx-2"><button type="submit" class="btn btn-outline-danger delete-blog-btn">Delete</button></a>
                     <a href="/dashboard/edit/{{blog.id}}" class="mx-2"><button type="submit" class="btn btn-outline-secondary edit-blog-btn">Edit</button></a>

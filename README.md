@@ -8,7 +8,8 @@ Check out the badges hosted by [shields.io](https://shields.io/).
 
 ## Description
 
-A CMS-style blog site similar to a Wordpress site where developers can publish their blog posts and comment on other developer's blog posts as well.
+A CMS-style blog site similar to a Wordpress site where developers can publish their blog posts and comment on other developer's blog posts as well. The app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+
 # Table of Contents
 * [Installation](#installation)
 
@@ -24,7 +25,20 @@ A CMS-style blog site similar to a Wordpress site where developers can publish t
 
 # Installation
 
-Add a .env file to the root of the project. You will also need to use npm install to install the packages. This project uses the following dependencies: bcrypt, connect-session-sequelize, dotenv, express, express-handlebars, express-session, mysql2, nodemon, path, sequelize
+Add a .env file to the root of the project.
+
+Clone the repo, navigate to the root folder, and add a .env file to the root.
+
+Run the following commands from the CLI:     
+
+Run Test;    
+`npm run test`     
+
+Seed DB;   
+`npm run seed`     
+
+Start Server;     
+`npm start server`   
 
 
 # Usage

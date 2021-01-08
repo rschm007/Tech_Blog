@@ -1,4 +1,4 @@
-const deleteFormHandler = async (event) => {
+const editFormHandler = async (event) => {
     try {
       event.preventDefault();
   
@@ -26,10 +26,5 @@ const deleteFormHandler = async (event) => {
   };
   
   document
-    .querySelector(".new-blog-form")
-    .addEventListener("submit", newFormHandler);
-  
-  document
-    .querySelector(".delete-blog-btn")
-    .addEventListener("click", deleteFormHandler);
-  
+    .querySelector(".edit-blog-btn")
+    .addEventListener("click", editFormHandler);

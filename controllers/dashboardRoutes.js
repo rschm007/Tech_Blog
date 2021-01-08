@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const sequelize = require("../config/connection");
 const { User, Blog, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
@@ -65,30 +64,6 @@ router.get("/edit/:id", withAuth, async (req, res) => {
       // serialize data first
       const blog = dbBlogData.get({ plain: true });
       res.render("edit-blog", { blog, logged_in: true });
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-// DELETE one blog post
-router.delete("/delete/:id", withAuth, async (req, res) => {
-  try {
-    // ACCESS Blog model and run .findOne method to matching req.params.id
-    await Blog.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    }).then((dbBlogData) => {
-      if (!dbBlogData) {
-        res.status(404).json({ message: "No blog post found with this ID" });
-        return;
-      }
-      // serialize data first
-      res.status(200).json(dbBlogData);
-      res.render("dashboard", { blogs, logged_in: true });
     });
   } catch (err) {
     console.log(err);

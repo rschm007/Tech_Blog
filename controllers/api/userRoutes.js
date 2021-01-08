@@ -51,7 +51,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // POST a new user
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -93,7 +93,9 @@ router.post("/login", async (req, res) => {
       req.session.logged_in = true;
 
       res.json({ user: dbUserData, message: "You are now logged in!" });
+      document.location.replace("/dashboard");
     });
+
   } catch (err) {
     res.status(400).json(err);
   }

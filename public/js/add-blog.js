@@ -2,6 +2,7 @@ const newFormHandler = async (event) => {
   try {
     event.preventDefault();
 
+    // grab the values of the title and content from input fields
     const title = document.querySelector("#new-blog-title").value.trim();
     const content = document.querySelector("#blog-content").value.trim();
 

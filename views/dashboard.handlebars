@@ -32,8 +32,8 @@
         {{#each blogs as |blog|}}
             {{> dashboard-blog-card blog}}
                 <div class="d-inline-flex p-2">
-                    <a href="/dashboard/delete/{{blog.id}}" class="mx-2"><button type="submit" class="btn btn-outline-danger delete-blog-btn">Delete</button></a>
-                    <a href="/dashboard/edit/{{blog.id}}" class="mx-2"><button type="submit" class="btn btn-outline-secondary edit-blog-btn">Edit</button></a>
+                    <button type="submit" class="btn btn-outline-danger delete-blog-btn" value="{{blog.id}}">Delete</button>
+                    <a href="/dashboard/edit/{{blog.id}}" class="mx-2 edit-blog-link"><button type="submit" class="btn btn-outline-secondary edit-blog-btn">Edit</button></a>
                 </div>
             </div>
         {{/each}}
@@ -48,5 +48,4 @@
 </div>
 
 <script src="/js/add-blog.js"></script>
-<script src="/js/edit-blog.js"></script>
 <script src="/js/delete-blog.js"></script>

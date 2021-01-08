@@ -2,9 +2,8 @@ const deleteFormHandler = async (event) => {
   try {
     event.preventDefault();
 
-    const id = window.location.toString().split("/")[
-      window.location.toString().split("/").length - 1
-    ];
+    // grab the value of the blog_id from the button href
+    const id = document.querySelector(".delete-blog-btn").getAttribute("value");
 
     const response = await fetch(`/api/blogs/${id}`, {
       method: "DELETE",

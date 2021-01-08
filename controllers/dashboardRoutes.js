@@ -45,6 +45,10 @@ router.get("/edit/:id", withAuth, async (req, res) => {
       // include associated Comments
       include: [
         {
+          model: User,
+          attributes: ["name"],
+        },
+        {
           model: Comment,
           attributes: ["id", "content", "date_created", "user_id"],
           include: {

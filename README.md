@@ -5,6 +5,11 @@
   
 Check out the badges hosted by [shields.io](https://shields.io/).
 
+## Links
+
+Repository: <a href="https://github.com/rschm007/Tech_Blog">https://github.com/rschm007/Tech_Blog</a>
+
+Deployed App: <a href="https://fathomless-reef-78577.herokuapp.com/">https://fathomless-reef-78577.herokuapp.com/</a>
 
 ## Description
 
@@ -24,8 +29,6 @@ A CMS-style blog site similar to a Wordpress site where developers can publish t
 * [License](#license)
 
 # Installation
-
-Add a .env file to the root of the project.
 
 Clone the repo, navigate to the root folder, and add a .env file to the root.
 

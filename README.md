@@ -11,6 +11,8 @@ Repository: <a href="https://github.com/rschm007/Tech_Blog">https://github.com/r
 
 Deployed App: <a href="https://fathomless-reef-78577.herokuapp.com/">https://fathomless-reef-78577.herokuapp.com/</a>
 
+<img src="https://github.com/rschm007/Tech_Blog/blob/main/assets/demo_1.gif" alt="a gif of the Tech Blog app"></src>
+
 ## Description
 
 A CMS-style blog site similar to a Wordpress site where developers can publish their blog posts and comment on other developer's blog posts as well. The app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.

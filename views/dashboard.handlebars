@@ -48,4 +48,7 @@
 </div>
 
 <script src="/js/add-blog.js"></script>
+{{!-- if blogs for this user exist, add delete-blog.js --}}
+{{#if blogs.length}}
 <script src="/js/delete-blog.js"></script>
+{{/if}}

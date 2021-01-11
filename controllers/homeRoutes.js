@@ -59,20 +59,25 @@ router.get("/blog/:id", async (req, res) => {
   }
 });
 
-// GET dashboard
+// GET dashboard and FIND all blogs that belong to User
 // Use withAuth middleware to prevent access to route
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
+    const user = await User.findByPk(req.session.user_id);
+
     // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
-      include: [{ model: Blog }],
+    const blogData = await Blog.findAll({ where: { user_id: req.session.user_id }} , {
+      // attributes: { exclude: ["password"] },
+      include: [{ model: User }],
     });
 
-    const user = userData.get({ plain: true });
+    // map the result of blogData
+    const blogs = blogData.map(blog => blog.get({ plain: true }));
 
+    // send blogs and user.dataValues to render
     res.render("dashboard", {
-      ...user,
+      blogs,
+      ...user.dataValues,
       logged_in: true,
     });
   } catch (err) {
